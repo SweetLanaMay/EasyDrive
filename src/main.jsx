@@ -36,7 +36,7 @@ Modal.setAppElement(rootElement);
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <BrowserRouter basename="/EasyDrive">
+    <BrowserRouter basename="/EasyDrive-project">
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <App />
