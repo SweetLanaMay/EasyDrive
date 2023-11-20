@@ -15,6 +15,7 @@ export const LogoSvg = styled.svg`
   export const LogoText = styled.h2`
   font-size: 20px;
   font-weight: 800;
+  font-style: italic;
   line-height: 18px; 
   margin-top: 0px;
   margin-bottom: 0px;

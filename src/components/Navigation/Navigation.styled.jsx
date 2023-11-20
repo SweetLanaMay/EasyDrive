@@ -8,8 +8,8 @@ export const NavigationWrap = styled.nav`
 `;
 
 export const StyledNavigationLink = styled(NavLink)`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 20px;
   padding: 8px 16px;
   border-radius: 40px;

@@ -35,9 +35,4 @@ display: flex;
 gap: 10px;
 `;
 
-export const MainPhoto = styled.img`
-width: 650px;
-height: 800px;
-border-radius: 5px;
-object-fit: cover;
-`;
+

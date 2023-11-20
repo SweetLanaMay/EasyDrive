@@ -4,6 +4,7 @@ import CarList from "../../components/CarList/CarList";
 import { Header } from "src/components/Header/Header";
 import { selectFavoriteCars } from '../../redux/selectors'
 import { fetchFavoriteCars } from '../../redux/operations'
+import Container from "src/components/Container/Container";
 
 const FavoritesPage = () => {
   const favoriteCars = useSelector(selectFavoriteCars);
@@ -15,9 +16,11 @@ const FavoritesPage = () => {
 
 
   return (
-    <>
+   <>
       <Header />
+      <Container>
       <CarList cars={favoriteCars} />
+    </Container>
     </>
   );
 };
