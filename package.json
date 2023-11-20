@@ -21,7 +21,8 @@
     "react-router-dom": "^6.19.0",
     "react-toolkits": "^0.3.46",
     "redux-persist": "^6.0.0",
-    "styled-components": "^6.1.1"
+    "styled-components": "^6.1.1",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
