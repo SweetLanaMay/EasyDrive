@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 
 export const StyledModal = styled(Modal)`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,15 +117,62 @@ export const StyledLinkRental = styled(Link)`
   }
 `;
 
-export const ConditionsList = styled.div`
+export const ConditionsList = styled.ul`
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 421px;
+`;
+
+export const ConditionItem = styled.li`
   display: flex;
-  padding: 7px 14px;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  padding: 7px 14px;
   border-radius: 35px;
   background: #f9f9f9;
   color: #363535;
   font-size: 12px;
   line-height: 18px;
+`;
+
+export const CarMileage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: #f9f9f9;
+  color: #363535;
+  font-size: 12px;
+  line-height: 18px;
+`;
+
+export const CarPrice = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: #f9f9f9;
+  color: #363535;
+  font-size: 12px;
+  line-height: 18px;
+`;
+
+export const CloseButton = styled.svg`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+`;
+
+export const StyledCarMileage = styled.span`
+color: #3470FF;
+`;
+
+export const StyledPrice = styled.span`
+color: #3470FF;
 `;

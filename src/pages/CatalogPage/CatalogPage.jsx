@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "src/components/Header/Header";
 import CarList from "src/components/CarList/CarList";
 import { selectError, selectIsLoading } from "../../redux/selectors";
@@ -11,10 +11,15 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const [loadedCars, setLoadedCars] = useState(12)
 
   useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+    dispatch(fetchCars(loadedCars));
+  }, [dispatch, loadedCars]);
+
+  const handleLoadMore = () => {
+    setLoadedCars((prevLoadedCars) => prevLoadedCars + 12);
+  };
 
   if (isLoading) {
     return "Loading...";
@@ -28,7 +33,7 @@ const CatalogPage = () => {
       <Header />
       <Container>
       <CarList />
-      <StyledLink>Load more</StyledLink>
+      <StyledLink onClick={handleLoadMore}>Load more</StyledLink>
     </Container>
     </>
   );

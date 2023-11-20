@@ -6,7 +6,7 @@ import {
   CarTitle,
   CarModel,
   Description,
-} from "../CarList/CarList.styled";
+} from "../CarCard/CarCard.styled";
 import CarListSvg from "../CarListSvg/CarListSvg";
 import {
   StyledModal,
@@ -17,6 +17,12 @@ import {
   CarAccessories,
   ConditionsList,
   StyledLinkRental,
+  CloseButton,
+  ConditionItem,
+  CarMileage,
+  CarPrice,
+  StyledCarMileage,
+  StyledPrice,
 } from "./CarModal.styled";
 
 const CarModal = ({ isOpen, onRequestClose, car }) => {
@@ -34,6 +40,8 @@ const CarModal = ({ isOpen, onRequestClose, car }) => {
   const randomIndex = Math.floor(Math.random() * accessories.length);
   const randomAccessory = accessories[randomIndex];
 
+  const conditionsArray = car.rentalConditions.split("\n");
+
   return (
     <>
       {isOpen && (
@@ -43,6 +51,34 @@ const CarModal = ({ isOpen, onRequestClose, car }) => {
             onRequestClose={onRequestClose}
             contentLabel="Car Details"
           >
+            <CloseButton onClick={onRequestClose}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="x">
+                  <path
+                    id="Vector"
+                    d="M18 6L6 18"
+                    stroke="#121417"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    id="Vector_2"
+                    d="M6 6L18 18"
+                    stroke="#121417"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+              </svg>
+            </CloseButton>
             <CarCardWrapper key={car.id} data={car}>
               <CarModalPhoto src={car.img} alt={`Photo of ${car.make}`} />
               <CarInfoWrapper>
@@ -60,10 +96,16 @@ const CarModal = ({ isOpen, onRequestClose, car }) => {
               </Description>
               <CarDescription>{car.description}</CarDescription>
               <ModalTitle>Accessories and functionalities:</ModalTitle>
-              <CarAccessories>{car.accessories}{car.functionalities}</CarAccessories>
+              <CarAccessories>
+                {car.accessories}
+                {car.functionalities}
+              </CarAccessories>
               <ModalTitle>Rental Conditions:</ModalTitle>
               <ConditionsList>
-                {car.rentalConditions}
+                {conditionsArray.map((condition, index) => (
+                  <ConditionItem key={index}>{condition}</ConditionItem>
+                ))} <CarMileage>Mileage: <StyledCarMileage>{car.mileage}</StyledCarMileage></CarMileage>
+                <CarPrice>Price: <StyledPrice>{car.rentalPrice}</StyledPrice></CarPrice>
               </ConditionsList>
               <StyledLinkRental>Rental car</StyledLinkRental>
             </CarCardWrapper>
